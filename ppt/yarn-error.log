@@ -1,0 +1,40 @@
+Arguments: 
+  /home/metanoia/Applications/emsdk/node/14.15.5_64bit/bin/node /home/metanoia/.npm-packages/bin/yarn install
+
+PATH: 
+  /home/metanoia/Applications/emsdk:/home/metanoia/Applications/emsdk/node/14.15.5_64bit/bin:/home/metanoia/Applications/emsdk/upstream/emscripten:/home/metanoia/Applications/lite-xl/bin:/home/metanoia/.local/bin:/home/metanoia/.npm-packages/bin:/Applications:/usr/local/mysql/bin:/usr/local/mongodb/bin:/usr/local/php/bin:/usr/local/node/bin:/home/metanoia/Applications/emsdk:/home/metanoia/Applications/emsdk/node/14.15.5_64bit/bin:/home/metanoia/Applications/emsdk/upstream/emscripten:/home/metanoia/Applications/lite-xl/bin:/home/metanoia/.local/bin:/home/metanoia/.npm-packages/bin:/Applications:/usr/local/mysql/bin:/usr/local/mongodb/bin:/usr/local/php/bin:/usr/local/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.15.5
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: connect ECONNREFUSED 127.0.0.1:10809
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "build": "slidev build",
+      "dev": "slidev --open",
+      "export": "slidev export"
+    },
+    "dependencies": {
+      "@slidev/cli": "^0.27.20",
+      "@slidev/theme-default": "*",
+      "@slidev/theme-seriph": "*"
+    },
+    "name": "ppt"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
