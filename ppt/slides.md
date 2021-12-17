@@ -151,7 +151,7 @@ emitter.emit('someEvent', 'arg1 参数', 'arg2 参数');
 ```
 
 输出结果：
-```sh
+```shell
 $ node event.js 
 第一个监听人员 arg1 参数 arg2 参数
 第二个监听人员 arg1 参数 arg2 参数
@@ -268,7 +268,7 @@ console.log("要压缩的质量为：", quanlity);
 ```
 
 输出示例：
-```sh
+```shell
 $ node tests/yargs-test.js --quanlity 10
 要压缩的质量为： 10
 ```
@@ -286,7 +286,7 @@ layout: two-cols
 利用命令行工具库开发一个统计目录大小的程序，并且要能计算一级目录及文件的大小。
 
 输出示例如下：
-```sh
+```shell
 $ node fetch-dir-size.js
 ├── [4.0K]  docs
 ├── [ 36K]  node_modules
@@ -303,7 +303,7 @@ $ node fetch-dir-size.js
 找一个图片压缩的库，实现对图片的压缩处理。
 传入压缩的等级0-100，减少的图片的大小。
 
-```sh
+```shell
 $ compress-image -quanlity 50% xxxx.jpg
 ............
 ............
