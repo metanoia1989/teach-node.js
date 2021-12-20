@@ -15,13 +15,28 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm 缓存文件存储在 Linux/macOS 上的 `~/.npm` 中
+          # yarn 需要自定义缓存目录
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build
       - name: Echo ENV 
+        env:
+          str: ${{ toJSON(secrets) }}
         run: 
-          echo ${{ toJSON(secrets) }}
+          echo "$str"
       - name: Deploy pages
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
