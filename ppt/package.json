@@ -12,6 +12,7 @@
   },
   "name": "ppt",
   "devDependencies": {
+    "playwright-chromium": "^1.17.1",
     "yargs": "^17.3.0"
   }
 }
