@@ -1,5 +1,8 @@
-name: Deploy ppt 
-on: push
+name: DeployPPT
+on: 
+  push:
+    branches:
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,12 +19,15 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Echo ENV 
+        run: 
+          echo ${{ toJSON(secrets) }}
       - name: Deploy pages
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_ACCESS_TOKEN }}
           ARGS: "-avz --delete"
-          SOURCE: "ppt/dist/"
+          SOURCE: dist/
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
