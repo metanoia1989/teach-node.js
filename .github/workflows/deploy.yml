@@ -3,13 +3,14 @@ on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ppt
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: enter ppt directory
-        run: cd ppt
       - name: Install dependencies
         run: npm install
       - name: Build
