@@ -32,14 +32,13 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Deploy pages
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_ACCESS_TOKEN }}
-          ARGS: "-avz --delete"
-          SOURCE: ppt/dist/
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.TARGET }}           
-          
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -avzr --delete
+          path: ppt/dist/
+          remote_path: ${{ secrets.TARGET }}
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_port: ${{ secrets.REMOTE_PORT }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.SSH_ACCESS_TOKEN }}
