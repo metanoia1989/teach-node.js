@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: /nodejs-wallpaper.jpg
+background: https://images-1251976096.cos.ap-guangzhou.myqcloud.com/develop-image/nodejs-wallpaper.jpg
 class: text-center
 highlighter: prism
 lineNumbers: true
@@ -309,3 +309,72 @@ $ compress-image -quanlity 50% xxxx.jpg
 ............
 ............
 ```
+
+---
+
+# 第二章 Express 教程
+
+<div class="grid grid-cols-2">
+
+<section>
+Express 是 Node.js 生态中最常用的web框架，基本上后端的web开发，就是Express开发。
+像数据库、文件上传、权限验证，全部都有相应的中间件插件，引入即可使用。
+可以用来开发博客、商城、即时通讯，各种小而美的Web应用。   
+
+<div style="margin-top: 20px;">
+
+* [Node.js 资源大全中文版](https://github.com/huaize2020/awesome-nodejs)
+* [Mozilla Nodejs Express 教程](https://developer.mozilla.org/en-US/docs/learn/Server-side/Express_Nodejs)
+* [express api document](https://expressjs.com/zh-cn/api.html)
+
+</div>
+
+</section>
+
+
+![Express Application](/Express-Application.png)
+
+</div>
+
+---
+layout: two-cols
+---
+
+# Hello World
+
+Express.js 的 Hello world 实例：
+```js
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
+::right::
+
+# API 说明[^1] [^2]
+
+* `app.use()` 引入指定的中间件
+* `app.get()` 设置GET方法的路由
+* `app.all()` 设置允许任意HTTP请求的路由
+* `app.listen()` 绑定和监听指定的主机端口 
+* `express.static()` 内置中间件，设置静态文件
+
+[^1]: [Cheat Sheet for Express](https://devhints.io/express)
+[^2]: [Web Programming Node.js/Express “Cheat Sheet”.PDF](https://images-1251976096.cos.ap-guangzhou.myqcloud.com/develop-image/node-cheatsheet.pdf)
+
+---
+
+# 第三章 MongoDB 教程
+
+
+* [MongoDB中文手册](https://docs.mongoing.com/)
